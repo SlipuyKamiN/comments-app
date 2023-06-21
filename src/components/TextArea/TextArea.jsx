@@ -4,9 +4,7 @@ import {
   SubmitButton,
   TextAreaField,
   TextAreaForm,
-  TextAreaLabel,
   UserNameInput,
-  UserNameLabel,
 } from './TextArea.styled';
 import { BsSendCheck } from 'react-icons/bs';
 

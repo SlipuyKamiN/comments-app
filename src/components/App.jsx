@@ -19,7 +19,7 @@ export const App = () => {
           return;
         }
 
-        throw { message: response.message, status: response.status };
+        throw new Error(response.message);
       } catch (error) {
         console.log(error);
       }

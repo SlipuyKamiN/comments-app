@@ -41,7 +41,7 @@ export const UserFirstLetters = styled.p`
   position: absolute;
   width: 70px;
   height: 70px;
-  padding: 20px 0 0;
+  padding: 22px 0;
   text-align: center;
   font-size: 24px;
   font-weight: 600;
@@ -57,7 +57,7 @@ export const UserName = styled.h3`
   text-transform: capitalize;
   white-space: nowrap;
   background-color: #00000066;
-  font-size: 16px;
+  font-size: 18px;
   min-width: 200px;
   padding: 5px;
   padding-left: 80px;
@@ -82,5 +82,8 @@ export const DeleteButton = styled.button`
 `;
 
 export const UserComment = styled.p`
+  display: inline-block;
+  width: 100%;
   font-size: 18px;
+  overflow-wrap: break-word;
 `;

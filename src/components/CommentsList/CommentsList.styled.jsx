@@ -5,4 +5,5 @@ export const List = styled.ul`
   max-height: 70dvh;
   overflow-y: scroll;
   margin-bottom: 40px;
+  padding: 20px;
 `;

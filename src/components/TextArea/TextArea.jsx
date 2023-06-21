@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {
+  InputsWrapper,
   SubmitButton,
   TextAreaField,
   TextAreaForm,
@@ -7,6 +8,7 @@ import {
   UserNameInput,
   UserNameLabel,
 } from './TextArea.styled';
+import { BsSendCheck } from 'react-icons/bs';
 
 const localeStorage = {
   set: (key, value) => {
@@ -55,24 +57,30 @@ export const TextArea = ({ handleAddComment }) => {
     handleAddComment({ userName, commentText });
     setCommentText('');
     setUserName('');
+    localeStorage.set('commentText', '');
+    localeStorage.set('userName', '');
   };
 
   return (
     <TextAreaForm onSubmit={handleSubmit}>
-      <UserNameLabel>Say your name</UserNameLabel>
-      <UserNameInput
-        type="text"
-        name="userName"
-        value={userName}
-        onChange={handleInputChange}
-      />
-      <TextAreaLabel>Say your opinion</TextAreaLabel>
-      <TextAreaField
-        name="commentText"
-        value={commentText}
-        onChange={handleInputChange}
-      />
-      <SubmitButton type="submit">Submit</SubmitButton>
+      <InputsWrapper>
+        <UserNameInput
+          type="text"
+          name="userName"
+          value={userName}
+          onChange={handleInputChange}
+          placeholder="Say your name..."
+        />
+        <TextAreaField
+          name="commentText"
+          value={commentText}
+          onChange={handleInputChange}
+          placeholder="Say your opinion..."
+        />
+      </InputsWrapper>
+      <SubmitButton type="submit">
+        <BsSendCheck size={24} />
+      </SubmitButton>
     </TextAreaForm>
   );
 };

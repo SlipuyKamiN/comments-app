@@ -1,4 +1,4 @@
-import { AppWrapper, Container } from './App.styled';
+import { Container } from './App.styled';
 import { CommentsList } from './CommentsList/CommentsList';
 import { TextArea } from './TextArea/TextArea';
 import { useEffect, useState } from 'react';
@@ -39,13 +39,20 @@ export const App = () => {
     ]);
   };
 
-  console.log(comments);
+  const handleDeleteComment = ({ id }) => {
+    const filteredComments = comments.filter(comment => comment.id !== id);
+    setComments(filteredComments);
+  };
+
   return (
-    <AppWrapper>
+    <main>
       <Container>
-        <CommentsList comments={comments} />
+        <CommentsList
+          comments={comments}
+          handleDeleteComment={handleDeleteComment}
+        />
         <TextArea handleAddComment={handleAddComment} />
       </Container>
-    </AppWrapper>
+    </main>
   );
 };

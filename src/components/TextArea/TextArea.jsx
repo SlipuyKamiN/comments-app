@@ -75,6 +75,7 @@ export const TextArea = ({ handleAddComment }) => {
           placeholder="Say your name..."
         />
         <TextAreaField
+          type="text"
           name="commentText"
           value={commentText}
           onChange={handleInputChange}

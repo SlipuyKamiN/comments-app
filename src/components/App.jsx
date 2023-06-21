@@ -1,4 +1,4 @@
-import { Container } from './App.styled';
+import { Container, Loader } from './App.styled';
 import { CommentsList } from './CommentsList/CommentsList';
 import { TextArea } from './TextArea/TextArea';
 import { useEffect, useState } from 'react';
@@ -8,6 +8,7 @@ import { notification } from './notification';
 import { ToastContainer } from 'react-toastify';
 
 export const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
@@ -25,6 +26,8 @@ export const App = () => {
       } catch (error) {
         console.log(error);
         notification();
+      } finally {
+        setIsLoading(false);
       }
     };
     getComments();
@@ -51,10 +54,14 @@ export const App = () => {
   return (
     <main>
       <Container>
-        <CommentsList
-          comments={comments}
-          handleDeleteComment={handleDeleteComment}
-        />
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <CommentsList
+            comments={comments}
+            handleDeleteComment={handleDeleteComment}
+          />
+        )}
         <TextArea handleAddComment={handleAddComment} />
       </Container>
       <ToastContainer />

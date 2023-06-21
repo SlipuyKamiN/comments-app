@@ -4,6 +4,8 @@ import { TextArea } from './TextArea/TextArea';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { nanoid } from 'nanoid';
+import { notification } from './notification';
+import { ToastContainer } from 'react-toastify';
 
 export const App = () => {
   const [comments, setComments] = useState([]);
@@ -22,6 +24,7 @@ export const App = () => {
         throw new Error(response.message);
       } catch (error) {
         console.log(error);
+        notification();
       }
     };
     getComments();
@@ -42,6 +45,7 @@ export const App = () => {
   const handleDeleteComment = ({ id }) => {
     const filteredComments = comments.filter(comment => comment.id !== id);
     setComments(filteredComments);
+    notification('Comment has been successfully deleted');
   };
 
   return (
@@ -53,6 +57,7 @@ export const App = () => {
         />
         <TextArea handleAddComment={handleAddComment} />
       </Container>
+      <ToastContainer />
     </main>
   );
 };

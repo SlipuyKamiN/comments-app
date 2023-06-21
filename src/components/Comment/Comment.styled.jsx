@@ -81,4 +81,6 @@ export const DeleteButton = styled.button`
   }
 `;
 
-export const UserComment = styled.p``;
+export const UserComment = styled.p`
+  font-size: 18px;
+`;

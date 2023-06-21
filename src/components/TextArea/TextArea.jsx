@@ -7,6 +7,7 @@ import {
   UserNameInput,
 } from './TextArea.styled';
 import { BsSendCheck } from 'react-icons/bs';
+import { notification } from 'components/notification';
 
 const localeStorage = {
   set: (key, value) => {
@@ -48,7 +49,7 @@ export const TextArea = ({ handleAddComment }) => {
   const handleSubmit = e => {
     e.preventDefault();
     if (userName === '' || commentText === '') {
-      alert('Qwe');
+      notification('Please fill the form below');
       return;
     }
 
@@ -57,6 +58,10 @@ export const TextArea = ({ handleAddComment }) => {
     setUserName('');
     localeStorage.set('commentText', '');
     localeStorage.set('userName', '');
+    notification(
+      `${userName}, your comment has been successfully added`,
+      'success'
+    );
   };
 
   return (

@@ -16,7 +16,6 @@ export const UserNameInput = styled.input`
   margin-bottom: 10px;
   background-color: transparent;
   border-radius: 20px;
-  border-top-right-radius: 0;
   padding: 10px;
   border: 1px solid #00000066;
   font-size: 18px;
